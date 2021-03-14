@@ -1,0 +1,35 @@
+.gestionpreguntas{
+    text-decoration: none;
+    padding: 40px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 1000;
+    font-size: 25px;
+    color: black;
+    background-color: #C0C0C0;
+  }
+  .gestionpreguntas:hover{
+    color: black;
+    background-color: rgb(5, 255, 242);
+    text-decoration: none;
+  }
+
+  .gestionresultados{
+    text-decoration: none;
+    padding: 40px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20 px;
+    font-weight: 1000;
+    font-size: 25px;
+    color: black;
+    background-color: #C0C0C0;
+  }
+  .gestionresultados:hover{
+    color:black;
+    background-color:greenyellow;
+    text-decoration: none;
+  }
