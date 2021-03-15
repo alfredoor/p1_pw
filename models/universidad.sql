@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 13-03-2021 a las 21:13:54
+-- Tiempo de generación: 15-03-2021 a las 13:35:54
 -- Versión del servidor: 8.0.22
 -- Versión de PHP: 8.0.2
 
@@ -73,17 +73,19 @@ CREATE TABLE `persona` (
   `TIPO` enum('ALUMNO','PROFESOR','ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `DNI` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
   `PASS` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `USER` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+  `USER` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `FOTO` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER`) VALUES
-(1, 'Gonzalo', 'Ulibarri Garcia', 'ALUMNO', '12345678A', 'alum', 'gonzaloulibarri'),
-(2, 'Profesor', 'profe', 'PROFESOR', '87654321Z', 'prof', 'profesor'),
-(3, 'admin', 'admin', 'ADMIN', '11111111A', 'admin', 'administrador');
+INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER`, `FOTO`) VALUES
+(1, 'Gonzalo', 'Ulibarri Garcia', 'ALUMNO', '12345678A', 'alum', 'gonzaloulibarri', 'gonzalo.jpg'),
+(2, 'Profesor', 'profe', 'PROFESOR', '87654321Z', 'prof', 'profesor', '1.jpeg'),
+(3, 'admin', 'admin', 'ADMIN', '11111111A', 'admin', 'administrador', 'admin1.jpeg'),
+(4, 'Nacho', 'Perez', 'PROFESOR', '45678912A', 'prof', 'nachoperez', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,24 @@ CREATE TABLE `preguntas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `profesor`
+--
+
+CREATE TABLE `profesor` (
+  `ASIGASOC` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `DNI` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `profesor`
+--
+
+INSERT INTO `profesor` (`ASIGASOC`, `DNI`) VALUES
+('PW', '45678912');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `temas`
 --
 
@@ -117,16 +137,29 @@ CREATE TABLE `temas` (
 --
 
 --
+-- Indices de la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  ADD UNIQUE KEY `DNI` (`DNI`);
+
+--
 -- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `DNI` (`DNI`,`USER`);
 
 --
 -- Indices de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
   ADD PRIMARY KEY (`IDPREG`);
+
+--
+-- Indices de la tabla `profesor`
+--
+ALTER TABLE `profesor`
+  ADD UNIQUE KEY `DNI` (`DNI`);
 
 --
 -- Indices de la tabla `temas`
@@ -142,7 +175,7 @@ ALTER TABLE `temas`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
