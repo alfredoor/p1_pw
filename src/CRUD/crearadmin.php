@@ -12,7 +12,7 @@
 
     
     if($pass != $repass){
-        header("Location: failpass.php");
+        header("Location: failpassadmin.php");
     }
 
     if($pass == null)   
@@ -30,34 +30,20 @@
     //     echo "La subida ha fallado";
     //     echo "<br>";
 
-    $conexionpersona = mysqli_connect('localhost','root', '777303', 'universidad');
+    $conexionadmin = mysqli_connect('localhost','root', '777303', 'universidad');
     if (mysqli_connect_errno()) {
         printf("Conexión fallida: %s\n", mysqli_connect_error());
         die();
     }
 
 
-    mysqli_query($conexionpersona ,"INSERT INTO persona (ID,NOMBRE,APELLIDOS,TIPO,DNI,PASS,USER,FOTO ) VALUES
-    (NULL,'$nombre' , '$apellidos' , 'PROFESOR', '$dni' , '$pass' , '$user' , '$archivo')");
+    mysqli_query($conexionadmin ,"INSERT INTO persona (ID,NOMBRE,APELLIDOS,TIPO,DNI,PASS,USER,FOTO ) VALUES
+    (NULL,'$nombre' , '$apellidos' , 'ADMIN', '$dni' , '$pass' , '$user' , '$archivo')");
 
     
 
-    $conexionprof = mysqli_connect('localhost','root', '777303', 'universidad');
-    if (mysqli_connect_errno()) {
-        printf("Conexión fallida: %s\n", mysqli_connect_error());
-        die();
-    }
-
-
-    $imparte = $_POST['matricula'];
-    $imp = implode(",", $imparte);
    
+    mysqli_close($conexionadmin);
 
-    mysqli_query($conexionprof ,"INSERT INTO profesor (ASIGASOC,DNI) VALUES
-    ('$imp' , '$dni' )");
-
-    mysqli_close($conexionprof);
-    mysqli_close($conexionpersona);
-
-    header("Location: profaniadido.php");
+    header("Location: adminaniadido.php");
 ?>

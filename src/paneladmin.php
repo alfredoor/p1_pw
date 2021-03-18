@@ -58,15 +58,18 @@ session_start();
 
         <tr>
             <th>
-                <a href="CRUDAlumno.php" class="opalumno">Operaciones CRUD para Alumno</a>
+                <a href="CRUDAlumno.php" class="opalumno">Crear Alumno</a>
             </th>
             <th>            
-                <a href="CRUDProfesor.php" class="opprof">Operaciones CRUD para Profesor</a>
+                <a href="CRUDProfesor.php" class="opprof">Crear Profesor</a>
             </th>
             <th> 
+                <a href="CRUDAdmin.php" class="opprof">Crear Administrador</a>
 
             </th>
         </tr>
+        
+    
     
     </table>
     
