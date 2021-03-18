@@ -62,7 +62,7 @@ if ( isset($_POST['submit'])) {
                 break;
             case 'PROFESOR': header("Location:panelprofesor.php");
                 break;
-            case 'ADMIN':  header("Location:paneladministrador.php");
+            case 'ADMIN':  header("Location:paneladmin.php");
                 break;
             default: echo "Contacte con un administrador, su cuenta necesita reparación"; 
         }

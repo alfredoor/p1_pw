@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 15-03-2021 a las 13:35:54
--- Versión del servidor: 8.0.22
--- Versión de PHP: 8.0.2
+-- Tiempo de generación: 18-03-2021 a las 18:46:19
+-- Versión del servidor: 8.0.23
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumno` (
-  `DNI` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `CURSO` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `GRADO` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `MATRICULADO` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
+  `DNI` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CURSO` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `GRADO` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MATRICULADO` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`DNI`, `CURSO`, `GRADO`, `MATRICULADO`) VALUES
+('11234554R', '2', 'GII', 'POO,POO,POO,POO,POO,POO,POO,,,,'),
+('12343221T', '4', 'GII', 'POO,POO,POO,POO,POO,POO,POO,,,,'),
+('33333333S', '3', 'GII', 'POO,POO,POO,QWER,QWER,QWERQ,WERQWER,,,,');
 
 -- --------------------------------------------------------
 
@@ -53,11 +62,12 @@ CREATE TABLE `asignaturas` (
 --
 
 CREATE TABLE `examenes` (
-  `CODEX` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CODEX` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `FECHA` date NOT NULL,
-  `PASS` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PREG` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `TEM` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL
+  `PASS` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PREG` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TEM` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ASIG` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -68,11 +78,11 @@ CREATE TABLE `examenes` (
 
 CREATE TABLE `persona` (
   `ID` int NOT NULL,
-  `NOMBRE` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `APELLIDOS` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `NOMBRE` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `APELLIDOS` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `TIPO` enum('ALUMNO','PROFESOR','ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `DNI` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PASS` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `DNI` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PASS` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `USER` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `FOTO` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -85,7 +95,11 @@ INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER
 (1, 'Gonzalo', 'Ulibarri Garcia', 'ALUMNO', '12345678A', 'alum', 'gonzaloulibarri', 'gonzalo.jpg'),
 (2, 'Profesor', 'profe', 'PROFESOR', '87654321Z', 'prof', 'profesor', '1.jpeg'),
 (3, 'admin', 'admin', 'ADMIN', '11111111A', 'admin', 'administrador', 'admin1.jpeg'),
-(4, 'Nacho', 'Perez', 'PROFESOR', '45678912A', 'prof', 'nachoperez', 'default.jpg');
+(4, 'Nacho', 'Perez', 'PROFESOR', '45678912A', 'prof', 'nachoperez', 'default.jpg'),
+(5, 'mario', 'Garcia', 'ALUMNO', '33333333S', 'qwer', 'mariouli', 'Foto0098.jpg'),
+(7, 'alfredo', 'ramos', 'ALUMNO', '11234554R', 'qwer', 'alfredoramos', 'Foto0097.jpg'),
+(8, 'david', 'garcia', 'ALUMNO', '12343221T', 'qwer', 'davidgarci', 'Foto0098.jpg'),
+(9, 'qwer', 'qwer', 'ALUMNO', 'qwerqwer', 'qwer', 'qwer', '');
 
 -- --------------------------------------------------------
 
@@ -94,12 +108,12 @@ INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER
 --
 
 CREATE TABLE `preguntas` (
-  `IDPREG` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ENUNCIADO` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP1` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP2` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP3` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP4` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `IDPREG` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ENUNCIADO` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP1` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP2` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP3` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP4` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -109,8 +123,8 @@ CREATE TABLE `preguntas` (
 --
 
 CREATE TABLE `profesor` (
-  `ASIGASOC` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `DNI` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ASIGASOC` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `DNI` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -128,8 +142,8 @@ INSERT INTO `profesor` (`ASIGASOC`, `DNI`) VALUES
 
 CREATE TABLE `temas` (
   `ID` int NOT NULL,
-  `NOMBRE` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `BATPREGUNTAS` varchar(1500) COLLATE utf8mb4_unicode_ci NOT NULL
+  `NOMBRE` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `BATPREGUNTAS` varchar(1500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -141,6 +155,13 @@ CREATE TABLE `temas` (
 --
 ALTER TABLE `alumno`
   ADD UNIQUE KEY `DNI` (`DNI`);
+
+--
+-- Indices de la tabla `examenes`
+--
+ALTER TABLE `examenes`
+  ADD PRIMARY KEY (`CODEX`),
+  ADD KEY `PREG` (`PREG`);
 
 --
 -- Indices de la tabla `persona`
@@ -175,7 +196,7 @@ ALTER TABLE `temas`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -38,9 +38,13 @@ session_start();
                     color: black;\" ><br>"?>
                 </th>
             </tr>
-            
-        
-    
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    <a type="button" href="cerrarsesion.php" >Cerrar sesion</a>
+                </th>
+            </tr>
         </table>
     
 
