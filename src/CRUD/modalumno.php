@@ -62,8 +62,8 @@
                     <br>
                     <br>
                     <br><br>
-                    <input type=\"text\" name=\"grado\" placeholder=\"grado\"  value=\"".$alum['GRADO']." \"  >
-                    <input type=\"text\" name=\"curso\" placeholder=\"curso\"  value=\"".$alum['CURSO']." \"  ><br>
+                    <input type=\"text\" name=\"grado\" placeholder=\"grado\"  value=\"".$alum['GRADO']." \"  >GRADO
+                    <input type=\"text\" name=\"curso\" placeholder=\"curso\"  value=\"".$alum['CURSO']." \"  >CURSO<br>
 
                     <input type=\"submit\" value=\"Actualizar\" name=\"submit\" >
 
