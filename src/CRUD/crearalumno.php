@@ -22,7 +22,12 @@
 
     $directorio = '../../imgs/';
     $archivo = basename($_FILES['archivo']['name']);
+
+    if($archivo == NULL)
+        $archivo = "default.jpg";
+
     $subir_archivo = $directorio.$archivo;
+
 
     if(move_uploaded_file($_FILES['archivo']['tmp_name'], $subir_archivo))
         echo "El archivo es válido y se cargó correctamente.<br><br>";

@@ -22,7 +22,7 @@ session_start();
 </head>
 <body>
     <h1 style="column-span: all; text-align: center">Panel de control del Administrador: <?php echo $nombresesion." ".$apellsesion ?></h1>
-    <br></br>
+    
 
     <table style="text-align: center;">
         <tr> 
@@ -67,14 +67,56 @@ session_start();
                 <a href="CRUDAdmin.php" class="opprof">Crear Administrador</a>
 
             </th>
-        </tr>
-        
-    
-    
+        </tr>\
     </table>
+    <br><br> <br><br> <br><br>
+    <table style="text-align: center; ">
+        <tr>
+            <th>
+                <a href="verAlumno.php" class="opalumno">Ver Alumnos</a>
+            </th>
+            <th>            
+                <a href="verProfesor.php" class="opprof">Ver Profesores</a>
+            </th>
+            <th> 
+                <a href="verAdmin.php" class="opprof">Ver Administradores</a>
+
+            </th>
+        </tr>
+    </table>
+    <br><br> <br><br> <br><br>
+    <table style="text-align: center; ">
+        <tr>
+            <th>
+                <a href="updAlumno.php" class="opalumno">Actualizar Alumnos</a>
+            </th>
+            <th>            
+                <a href="updProfesor.php" class="opprof">Actualizar Profesores</a>
+            </th>
+            <th> 
+                <a href="updAdmin.php" class="opprof">Actualizar Administradores</a>
+
+            </th>
+        </tr>
+    </table>
+    <br><br> <br><br> <br><br>
+    <table style="text-align: center; ">
+        <tr>
+            <th>
+                <a href="delAlumno.php" class="opalumno">Eliminar Alumnos</a>
+            </th>
+            <th>            
+                <a href="delProfesor.php" class="opprof">Eliminar Profesores</a>
+            </th>
+            <th> 
+                <a href="delAdministrador.php" class="opprof">Eliminar Administradores</a>
+
+            </th>
+        </tr>
+    </table>
+    <br><br><br><br>
+
     
-
-
 </body>
 </html>
 

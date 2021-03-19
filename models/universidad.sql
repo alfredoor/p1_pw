@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-03-2021 a las 18:46:19
+-- Tiempo de generación: 19-03-2021 a las 00:06:03
 -- Versión del servidor: 8.0.23
 -- Versión de PHP: 8.0.3
 
@@ -39,9 +39,9 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`DNI`, `CURSO`, `GRADO`, `MATRICULADO`) VALUES
+('11223344I', '2', 'GITI', 'POO,POO,POO,POO,POO,POO,POO,,,,'),
 ('11234554R', '2', 'GII', 'POO,POO,POO,POO,POO,POO,POO,,,,'),
-('12343221T', '4', 'GII', 'POO,POO,POO,POO,POO,POO,POO,,,,'),
-('33333333S', '3', 'GII', 'POO,POO,POO,QWER,QWER,QWERQ,WERQWER,,,,');
+('44565443R', '4', 'INEF', 'qwerqwer,qwerqwer,qwerqwer,qwerqwer,qwerqwer,qwerqwer,qwerqwer,,,,');
 
 -- --------------------------------------------------------
 
@@ -92,14 +92,11 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER`, `FOTO`) VALUES
-(1, 'Gonzalo', 'Ulibarri Garcia', 'ALUMNO', '12345678A', 'alum', 'gonzaloulibarri', 'gonzalo.jpg'),
-(2, 'Profesor', 'profe', 'PROFESOR', '87654321Z', 'prof', 'profesor', '1.jpeg'),
-(3, 'admin', 'admin', 'ADMIN', '11111111A', 'admin', 'administrador', 'admin1.jpeg'),
-(4, 'Nacho', 'Perez', 'PROFESOR', '45678912A', 'prof', 'nachoperez', 'default.jpg'),
-(5, 'mario', 'Garcia', 'ALUMNO', '33333333S', 'qwer', 'mariouli', 'Foto0098.jpg'),
-(7, 'alfredo', 'ramos', 'ALUMNO', '11234554R', 'qwer', 'alfredoramos', 'Foto0097.jpg'),
-(8, 'david', 'garcia', 'ALUMNO', '12343221T', 'qwer', 'davidgarci', 'Foto0098.jpg'),
-(9, 'qwer', 'qwer', 'ALUMNO', 'qwerqwer', 'qwer', 'qwer', '');
+(2, 'Juan jose', 'profe   ', 'PROFESOR', '44353321I', 'prof   ', 'profesor   ', 'default.jpg'),
+(3, 'admin  ', 'admin  ', 'ADMIN', '45611234T', 'admin', 'administrador  ', 'Foto0430.jpg'),
+(7, 'gonzalo ', 'Ulibarri Garcia ', 'ALUMNO', '44345445T', 'asdf ', 'GonzaloUli ', ''),
+(15, 'jj', 'rodriguez colorado', 'ALUMNO', '11223344I', 'qwer', 'xac', ''),
+(18, 'Pablo', 'Dodero', 'ALUMNO', '44565443R', 'rayo', 'zanda', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,7 +129,7 @@ CREATE TABLE `profesor` (
 --
 
 INSERT INTO `profesor` (`ASIGASOC`, `DNI`) VALUES
-('PW', '45678912');
+('PW', '44353321I');
 
 -- --------------------------------------------------------
 
@@ -196,7 +193,7 @@ ALTER TABLE `temas`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
