@@ -27,10 +27,10 @@ session_start();
         <table style="text-align: center;">
             <tr> 
                 <th>
-                    <a href="" class="gestionpreguntas">Gestion de preguntas</a>
+                    <a href="panelasignaturas.php" class="gestionpreguntas">Gestion de preguntas</a>
                 </th>
                 <th>            
-                    <a href="" class="gestionresultados">Gestion de resultados</a>
+                    <a href="GestResultados.php" class="gestionresultados">Gestion de resultados</a>
                 </th>
                 <th>
                     <?php
