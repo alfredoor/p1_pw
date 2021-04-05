@@ -1,4 +1,4 @@
-<?php
+<?p<?php
 session_start();
 	$nombresesion = $_SESSION['nombre'];
     $apellsesion = $_SESSION['apellidos'];
@@ -34,26 +34,30 @@ session_start();
 	
 		for ($i=0; $i<$numexam; $i++){
 	
-		$fila = mysqli_fetch_array($consulta);
-		echo "<tr>";
+			$fila = mysqli_fetch_array($consulta);
+			echo "<tr>";
 		
-		print "<td>".$fila['fecha']."</td>";
-		print "<td>".$fila['tema']."</td>";
-		print "<td>".$fila['asignatura']."</td>";
+			print "<td>".$fila['fecha']."</td>";
+			print "<td>".$fila['tema']."</td>";
+			print "<td>".$fila['asignatura']."</td>";
 		
-		$fecha=$fila['fecha'];
-		$asignatura=$fila['asignatura'];
-		header("Location:hacerexamen.php");
-	
-
-		?>
-		<html>
-			<th>
-                <a href="hacerexamen.php" class="doexam">Hacer examen</a>
+			$tema=$fila['tema'];
+			$asignatura=$fila['asignatura'];
+		
+			$_SESSION['tema'] = $tema;
+			$_SESSION['asignatura'] = $asignatura;
+		
+			?>
+			<html>
+				<th>
+                	<a href="hacerexamen.php" class="doexam">Hacer examen</a>
 				
-            </th>
-		</html>
-		<?php
+            	</th>
+			</html>
+			<?php
+	
+	
+		
 		}
 					
 	
@@ -63,9 +67,6 @@ session_start();
 	
 	
 ?>
-
-
-
 
 
 
