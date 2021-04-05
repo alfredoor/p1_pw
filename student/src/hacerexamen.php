@@ -11,11 +11,10 @@ session_start();
 <h1 style="column-span: all; text-align: center">Examen del tema <?php print $tema; ?> de <?php print $asignatura; ?></h1>
 </html>
 <?php 
-
 			
 			$conexion = mysqli_connect('localhost','root', '', 'universidad');
 	
-			$consult = mysqli_query($conexion,"SELECT * FROM preguntas WHERE preguntas.tema=1 && preguntas.asignatura='PW'");
+			$consult = mysqli_query($conexion,"SELECT * FROM preguntas WHERE preguntas.tema='$tema' && preguntas.asignatura='$asignatura'");
 	
 			for ($i=1; $i<=10; $i++){
 				$fil = mysqli_fetch_array($consult);
@@ -32,6 +31,16 @@ session_start();
 			<br><input name='respuesta1' type='radio' value='resp4' /> <?php print $fil['RESP4']; ?>
 			
 			<br><br>
+			
+			<?php } ?>
+
+
+			<br><br><input type='submit' value='Enviar'>
+			
+		</form>
+		
+		</html>
+
 			
 			<?php } ?>
 
