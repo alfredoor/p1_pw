@@ -16,7 +16,7 @@ session_start();
 <html>
 <head>
     <meta content="charset=utf-8" />
-    <title>PanelProfesor</title>
+    <title>Panel Alumno</title>
     <link href="../templates/panelalumno.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -27,7 +27,8 @@ session_start();
         <table style="text-align: center; ">
             <tr> 
                 <th>
-                    <a href="" class="realizarexamen">Realizar examenes</a>
+                    <a href="../../student/src/panelexamen.php" class="realizarexamen">Realizar examenes</a>
+					
                 </th>
                 <th>            
                     <a href="" class="visualizarcalificaciones">Ver calificaciones</a>

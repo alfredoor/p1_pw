@@ -1,10 +1,10 @@
 <!-- Thanks to Tushar Sonawane to provde me that amazing css -->
 
 <?php
-include('funciones.inc');
+
 
 function autentificado($user, $pass){
-    $conexion = mysqli_connect('localhost','root', '777303', 'universidad');
+    $conexion = mysqli_connect('localhost','root', '', 'universidad');
     if (mysqli_connect_errno()) {
         printf("Conexión fallida: %s\n", mysqli_connect_error());
         die();
@@ -21,7 +21,7 @@ function autentificado($user, $pass){
 }
 
 function givetipe($user, $pass){
-    $conexion = mysqli_connect('localhost','root', '777303', 'universidad');
+    $conexion = mysqli_connect('localhost','root', '', 'universidad');
     if (mysqli_connect_errno()) {
         printf("Conexión fallida: %s\n", mysqli_connect_error());
         exit();
