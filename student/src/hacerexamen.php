@@ -1,4 +1,4 @@
-<?php<?php
+<?php
 session_start();
 	$nombresesion = $_SESSION['nombre'];
     $apellsesion = $_SESSION['apellidos'];
@@ -26,10 +26,10 @@ session_start();
 		<form method='post' action='corregirexamen.php'>
 			<?php print "Pregunta "."$i."." ".$fil['ENUNCIADO']; ?> <br><br>
 
-			<br><input name='respuesta1' type='radio' value='<?php $fil['RESP1'] ?>' /> <?php print $fil['RESP1']; ?>
-			<br><input name='respuesta1' type='radio' value='<?php $fil['RESP2'] ?>' /> <?php print $fil['RESP2']; ?>
-			<br><input name='respuesta1' type='radio' value='<?php $fil['RESP3'] ?>' /> <?php print $fil['RESP3']; ?>
-			<br><input name='respuesta1' type='radio' value='<?php $fil['RESP4'] ?>' /> <?php print $fil['RESP4']; ?>
+			<br><input name='respuesta1' type='radio' value='resp1' /> <?php print $fil['RESP1']; ?>
+			<br><input name='respuesta1' type='radio' value='resp2' /> <?php print $fil['RESP2']; ?>
+			<br><input name='respuesta1' type='radio' value='resp3' /> <?php print $fil['RESP3']; ?>
+			<br><input name='respuesta1' type='radio' value='resp4' /> <?php print $fil['RESP4']; ?>
 			
 			<br><br>
 			
@@ -43,7 +43,3 @@ session_start();
 		</html>
 
     
-
-    
-		
-	
