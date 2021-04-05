@@ -16,33 +16,27 @@ session_start();
 	
 			$consult = mysqli_query($conexion,"SELECT * FROM preguntas WHERE preguntas.tema='$tema' && preguntas.asignatura='$asignatura'");
 	
-			for ($i=1; $i<=10; $i++){
-				$fil = mysqli_fetch_array($consult);
+			
 				
 	
 	?>
 		<html>
 		<form method='post' action='corregirexamen.php'>
-			<?php print "Pregunta "."$i."." ".$fil['ENUNCIADO']; ?> <br><br>
+			<?php for ($i=1; $i<=10; $i++){
+				$fil = mysqli_fetch_array($consult);
+			
+			print "Pregunta "."$i."." ".$fil['ENUNCIADO']; ?> <br><br>
 
-			<br><input name='respuesta1' type='radio' value='resp1' /> <?php print $fil['RESP1']; ?>
-			<br><input name='respuesta1' type='radio' value='resp2' /> <?php print $fil['RESP2']; ?>
-			<br><input name='respuesta1' type='radio' value='resp3' /> <?php print $fil['RESP3']; ?>
-			<br><input name='respuesta1' type='radio' value='resp4' /> <?php print $fil['RESP4']; ?>
+			<br><input name='respuesta[]' id='respuesta1' type='radio' value='resp1' /> <?php print $fil['RESP1']; ?>
+			<br><input name='respuesta[]' id='respuesta2' type='radio' value='resp2' /> <?php print $fil['RESP2']; ?>
+			<br><input name='respuesta[]' id='respuesta3' type='radio' value='resp3' /> <?php print $fil['RESP3']; ?>
+			<br><input name='respuesta[]' id='respuesta4' type='radio' value='resp4' /> <?php print $fil['RESP4']; ?>
 			
 			<br><br>
 			
-			<?php } ?>
-
-
-			<br><br><input type='submit' value='Enviar'>
-			
-		</form>
-		
-		</html>
-
 			
 			<?php } ?>
+			
 
 
 			<br><br><input type='submit' value='Enviar'>
@@ -52,3 +46,7 @@ session_start();
 		</html>
 
     
+
+    
+		
+	

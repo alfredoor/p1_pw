@@ -15,14 +15,16 @@ session_start();
 	
 	$nota=0;
 	
-	for ($i=1; $i<=10; $i++){
+	
+	
+	for($i=1; $i<=10; $i++){
 		$fil = mysqli_fetch_array($consult);
 		
-		if ($_POST['respuesta1'] == $fil['CORRECTA'])
+		if ($_POST['respuesta'] == $fil['CORRECTA'])
 			$nota++;		
 		
 		}
-				
+	
 	print "La nota final del examen es ".$nota."/10";
 
 
