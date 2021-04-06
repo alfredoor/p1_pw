@@ -9,25 +9,34 @@ session_start();
 
 <?php 
 
-	$conexion = mysqli_connect('localhost','root', '', 'universidad');
-	
-	$consult = mysqli_query($conexion,"SELECT * FROM preguntas WHERE preguntas.tema='$tema' && preguntas.asignatura='$asignatura'");
-	
-	$nota=0;
-	
-	
-	
-	for($i=1; $i<=10; $i++){
-		$fil = mysqli_fetch_array($consult);
-		
-		if ($_POST['respuesta'] == $fil['CORRECTA'])
-			$nota++;		
-		
-		}
-	
-	print "La nota final del examen es ".$nota."/10";
+			
 
+			$conexion = mysqli_connect('localhost','root', '', 'universidad');
+			
+			$nota=0;
+			
+			$consulta1 = mysqli_query($conexion,"SELECT * FROM preguntas WHERE preguntas.tema='$tema' && preguntas.asignatura='$asignatura'");
 
+			$consulta2 = mysqli_query($conexion,"SELECT * FROM resultados");
+			
+			$consulta3 = mysqli_query($conexion,"SELECT * FROM examenes");
+			
+			for ($i=1; $i<=2; $i++){
+				$fila1 = mysqli_fetch_array($consulta1);
+				$fila2 = mysqli_fetch_array($consulta2);
+				$fila3 = mysqli_fetch_array($consulta3);
+				
+				if($fila3['CODEX']==$fila2['CODEX']){
+					for ($j=1; $j<=2; $j++){
+						if ($fila1['CORRECTA'] == $fila2['RESPUESTA'])
+							$nota++;
+						
+					}
+				}
+				
+			}
+			
+			print "La nota del examen es de ".$nota."/10";
 
 
 

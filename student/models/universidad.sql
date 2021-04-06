@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-04-2021 a las 18:47:18
+-- Tiempo de generación: 02-04-2021 a las 00:19:20
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `examenes` (
   `TEMA` int(2) NOT NULL,
   `ASIGNATURA` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`CODEX`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `examenes`
@@ -84,29 +84,7 @@ CREATE TABLE IF NOT EXISTS `examenes` (
 
 INSERT INTO `examenes` (`CODEX`, `FECHA`, `TEMA`, `ASIGNATURA`) VALUES
 (1, '2021-04-02', 1, 'PW'),
-(3, '2021-04-04', 2, 'PW'),
-(4, '2021-04-03', 5, 'ICR');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `expediente`
---
-
-CREATE TABLE IF NOT EXISTS `expediente` (
-  `DNI` varchar(9) NOT NULL,
-  `ID_ASIG` int(11) NOT NULL,
-  `NOMBRE` varchar(3) NOT NULL,
-  `GRADO` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `expediente`
---
-
-INSERT INTO `expediente` (`DNI`, `ID_ASIG`, `NOMBRE`, `GRADO`) VALUES
-('44565443R', 1, 'PW', 'GII'),
-('44565443R', 2, 'ICR', 'GII');
+(3, '2021-04-03', 2, 'ICR');
 
 -- --------------------------------------------------------
 
@@ -147,22 +125,20 @@ INSERT INTO `persona` (`ID`, `NOMBRE`, `APELLIDOS`, `TIPO`, `DNI`, `PASS`, `USER
 CREATE TABLE IF NOT EXISTS `preguntas` (
   `TEMA` int(1) NOT NULL,
   `ENUNCIADO` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP1` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP2` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP3` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `RESP4` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `CORRECTA` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ASIGNATURA` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL
+  `RESP1` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP2` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP3` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `RESP4` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ASIGNATURA` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`ASIGNATURA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `preguntas`
 --
 
-INSERT INTO `preguntas` (`TEMA`, `ENUNCIADO`, `RESP1`, `RESP2`, `RESP3`, `RESP4`, `CORRECTA`, `ASIGNATURA`) VALUES
-(5, 'TCP/IP se creo antes que OSI', 'Verdadero', 'Falso', '', NULL, 'resp1', 'ICR'),
-(1, 'PHP es un lenguaje: ', 'Interpretado', 'Compilado', 'Ensamblador', 'Ninguna de las respuestas es correc', 'resp1', ''),
-(5, 'El direccionamiento fisico pertenece a', 'Capa de Red', 'Capa de Enlace', 'Capa Fisica', 'Ninguna de las anteriores es correcta', 'resp2', 'ICR');
+INSERT INTO `preguntas` (`TEMA`, `ENUNCIADO`, `RESP1`, `RESP2`, `RESP3`, `RESP4`, `ASIGNATURA`) VALUES
+(1, 'PHP es un lenguaje: ', 'Interpretado', 'Compilado', 'Ensamblador', 'Ninguna de las respuestas es correc', 'PW');
 
 -- --------------------------------------------------------
 
@@ -208,4 +184,3 @@ INSERT INTO `temas` (`ID_ASIG`, `CURSO`, `NOMBRE`, `NUM_TEMA`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
