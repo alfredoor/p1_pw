@@ -35,7 +35,7 @@ session_start();
         $Nfilas = mysqli_num_rows($consulta);
 
         echo "
-            <form method=POST enctype=multipart/form-data action=GestPreguntas.php>
+            <form method=POST enctype=multipart/form-data action=GestResultados.php>
                 <table style=text-align: left > ";
         for($i= 0 ; $i < $Nfilas ; $i++){
             $fila = mysqli_fetch_array($consulta); 

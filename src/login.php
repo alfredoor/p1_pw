@@ -4,7 +4,7 @@
 
 
 function autentificado($user, $pass){
-    $conexion = mysqli_connect('localhost','root', '', 'universidad');
+    $conexion = mysqli_connect('localhost','root', '777303', 'universidad');
     if (mysqli_connect_errno()) {
         printf("Conexión fallida: %s\n", mysqli_connect_error());
         die();
@@ -17,11 +17,12 @@ function autentificado($user, $pass){
     $_SESSION['nombre'] = $sujeto['NOMBRE'];
     $_SESSION['apellidos'] = $sujeto['APELLIDOS'];
     $_SESSION['foto'] = $sujeto['FOTO'];
+    $_SESSION['dni']= $sujeto['DNI'];
     return $numuser;
 }
 
 function givetipe($user, $pass){
-    $conexion = mysqli_connect('localhost','root', '', 'universidad');
+    $conexion = mysqli_connect('localhost','root', '777303', 'universidad');
     if (mysqli_connect_errno()) {
         printf("Conexión fallida: %s\n", mysqli_connect_error());
         exit();
@@ -102,8 +103,9 @@ if ( isset($_POST['submit'])) {
                     <input type="submit" value="Enviar" name="submit" class="btn btn-primary btn-large btn-block">
                 </div>
             </form><br>
-            <?php echo "<div color='red' style=\"text-align : center; color : red \">".$incorrectlogin."</div>" ;
-             $incorrectlogin = ''; ?>
+            <?php
+                echo "<div color='red' style=\"text-align : center; color : red \">".$incorrectlogin."</div>" ;
+            // $incorrectlogin = ''; ?>
 		</div>
 	</div>
 </body>

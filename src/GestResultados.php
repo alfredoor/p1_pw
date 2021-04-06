@@ -3,6 +3,7 @@ session_start();
     $nombresesion = $_SESSION['nombre'];
     $apellsesion = $_SESSION['apellidos'];
     $fotosesion = $_SESSION['foto'];
+    $dni= $_SESSION['dni'];
 
     if($nombresesion ==null || $apellsesion==null){
         echo "no hay autorizacion";
@@ -35,7 +36,8 @@ session_start();
             printf("Conexión fallida: %s\n", mysqli_connect_error());
             die();
         }
-        $consulta = mysqli_query($conexionpreguntas, "SELECT * FROM examenes ORDER BY CODEX ");
+        $idasig = $_POST['asignatura'];
+        $consulta = mysqli_query($conexionpreguntas, "SELECT * FROM examenes WHERE ASIG = '$idasig' ORDER BY CODEX ");
         $Nfilas = mysqli_num_rows($consulta);
         $fila = mysqli_fetch_array($consulta); 
         $resulB = 0;
