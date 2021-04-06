@@ -26,7 +26,7 @@ session_start();
 				$fila2 = mysqli_fetch_array($consulta2);
 				$fila3 = mysqli_fetch_array($consulta3);
 				
-				if($fila3['CODEX']==$fila2['CODEX']){
+				if($fila3['CODEX']==$fila2['CODEX'] && $fila1['tema'] == $j){
 					for ($j=1; $j<=2; $j++){
 						if ($fila1['CORRECTA'] == $fila2['RESPUESTA'])
 							$nota++;
